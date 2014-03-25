@@ -98,3 +98,85 @@ if ( ! function_exists('form_select'))
 }
 
 // ------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------
+
+/**
+ * form_button
+ *
+ * Generates an HTML heading tag.  First param is the data.
+ * Second param is the size of the heading tag.
+ *
+ * @access	public
+ * @param	string
+ * @param	integer
+ * @return	string
+ */
+if ( ! function_exists('form_button'))
+{
+	function form_button($value , $type = 0, $option = 0, $size = 0, $disabled = FALSE)
+	{
+            $class = '';
+            
+            switch ($option) {
+                case 1:
+                    $class = 'primary';
+                    break;
+                case 2:
+                    $class = 'success';
+                    break;
+                case 3:
+                    $class = 'info';
+                    break;
+                case 4:
+                    $class = 'warning';
+                    break;
+                case 5:
+                    $class = 'danger';
+                    break;
+                case 6:
+                    $class = 'link';
+                    break;
+                default:
+                    $class = 'default';
+                    break;
+            }
+            
+            switch ($size) {
+                case 1:
+                    $class .= ' btn-lg'; //Large
+                    break;
+                case 2:
+                    $class .= ' btn-sm'; //Small
+                    break;
+                case 3:
+                    $class .= ' btn-xs'; //Extra Small
+                    break;
+            }
+            
+            if ($disabled) {
+                $disabled = 'disabled="disabled"';
+            } else {
+                $disabled = '';
+            }
+            
+            switch ($type) {
+                case 1:
+                    $type = 'submit';
+                    break;
+                default:
+                    $type = 'button';
+                    break;
+            }
+            
+            $button = "<div class='form-group'>
+                            <div class='col-sm-offset-2 col-sm-10'>
+                              <button type='$type' class='btn btn-$class' $disabled>$value</button>
+                            </div>
+                          </div>";
+            
+            return $button;
+	}
+}
+
+// ------------------------------------------------------------------------
