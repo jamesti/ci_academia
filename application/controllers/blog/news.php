@@ -15,6 +15,7 @@ class News extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->helper(array('form','html'));
         $this->load->model('news_model');
     }
 
@@ -46,7 +47,6 @@ class News extends CI_Controller {
     }
 
     public function create() {
-        $this->load->helper(array('form','html'));
         $this->load->library('form_validation');
 
         $data['title'] = 'Create a news item';

@@ -101,19 +101,31 @@ if ( ! function_exists('form_select'))
 
 // ------------------------------------------------------------------------
 
-/**
- * form_button
- *
- * Generates an HTML heading tag.  First param is the data.
- * Second param is the size of the heading tag.
- *
- * @access	public
- * @param	string
- * @param	integer
- * @return	string
- */
 if ( ! function_exists('form_button'))
 {
+    /**
+     * Cria um Botão de Formulário fornecendo seus Atributos.
+     * 
+     * @param string $value <p>Nome do Botão.</p>
+     * @param int $type 
+     * <li>0 => Button</li>
+     * <li>1 => Submit</li>
+     * @param int $option 
+     * <li>0 => default</li> 
+     * <li>1 => primary</li> 
+     * <li>2 => success</li> 
+     * <li>3 => info</li> 
+     * <li>4 => warning</li>
+     * <li>5 => danger</li> 
+     * <li>6 => link</li>
+     * @param int $size
+     * <li>0 - default</li>
+     * <li>1 - Large</li>
+     * <li>2 - Small</li>
+     * <li>3 - Extra Small</li>
+     * @param bool $disabled Botão desativado, padrão é FALSE
+     * @return string
+     */
 	function form_button($value , $type = 0, $option = 0, $size = 0, $disabled = FALSE)
 	{
             $class = '';

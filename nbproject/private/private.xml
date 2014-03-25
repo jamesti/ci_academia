@@ -5,7 +5,9 @@
         <group>
             <file>file:/D:/Documents/NetBeansProjects/ci_academia/application/views/news/create.php</file>
             <file>file:/D:/Documents/NetBeansProjects/ci_academia/application/helpers/MY_form_helper.php</file>
+            <file>file:/D:/Documents/NetBeansProjects/ci_academia/application/views/news/index.php</file>
             <file>file:/D:/Documents/NetBeansProjects/ci_academia/application/controllers/blog/news.php</file>
+            <file>file:/D:/Documents/NetBeansProjects/ci_academia/application/models/news_model.php</file>
         </group>
     </open-files>
 </project-private>
