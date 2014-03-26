@@ -106,7 +106,9 @@ if ( ! function_exists('form_button'))
     /**
      * Cria um Botão de Formulário fornecendo seus Atributos.
      * 
-     * @param string $value <p>Nome do Botão.</p>
+     * @param string/array $value <p>Nome do Botão. ou Array onde:</p>
+     * <li>0 => Nome do Botão</li>
+     * <li>1 => Link para onde vai</li>
      * @param int $type 
      * <li>0 => Button</li>
      * <li>1 => Submit</li>
@@ -129,6 +131,14 @@ if ( ! function_exists('form_button'))
 	function form_button($value , $type = 0, $option = 0, $size = 0, $disabled = FALSE)
 	{
             $class = '';
+            
+            $valor = $value;
+            $link = NULL;
+            
+            if (is_array($value)) {
+                $valor = $value[0];
+                $link = $value[1];
+            }
             
             switch ($option) {
                 case 1:
@@ -181,13 +191,21 @@ if ( ! function_exists('form_button'))
                     break;
             }
             
-            $button = "<div class='form-group'>
-                            <div class='col-sm-offset-2 col-sm-10'>
-                              <button type='$type' class='btn btn-$class' $disabled>$value</button>
-                            </div>
-                          </div>";
+            if ($link == NULL) {
+                $button = "<button type='$type' class='btn btn-$class' $disabled>$valor</button>\n";
+            } else {
+                $button = "<a href='".base_url($link)."' type='$type' class='btn btn-$class' $disabled>$valor</a>";
+            }
             
-            return $button;
+            $template = "<div class='form-group'>
+                            <div class='col-sm-offset-2 col-sm-10'>
+                              $button
+                            </div>
+                          </div>\n";
+            
+            
+            
+            return $template;
 	}
 }
 

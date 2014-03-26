@@ -1,14 +1,16 @@
 
 <h4>Cadastrar Novo Artigo</h4>
 
-<?php echo form_button('Novo Artigo', 0, 6) ?>
+<?php echo html_button(array('Novo Artigo','/news/create'), 0, 1) ?>
 
 <table class="table table-hover">
 
     <thead>
-        <th>Título</th>
-        <th>Texto</th>
-        <th>Ações</th>
+        <tr>
+            <th>Título</th>
+            <th>Texto</th>
+            <th>Ações</th>
+        </tr>        
     </thead>
     
     <tbody>
@@ -18,7 +20,7 @@
         <tr>
             <td><?php echo $news_item['title'] ?></td>
             <td><?php echo $news_item['text'] ?></td>
-            <td><a href="/news/<?php echo $news_item['slug'] ?>">Detalhes</a></td>
+            <td><?php echo html_button_dropdowns('Ações', array('Detalhes' => '/news/'.$news_item['slug']), 3) ?></td>
         </tr>
     
 <?php endforeach ?>
